@@ -1,0 +1,326 @@
+﻿<Window x:Class="modernDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:modernDesign"
+        mc:Ignorable="d"
+        Height="1000" Width="1400"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+    <Border
+            CornerRadius="20">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#282425" Offset="0.0" />
+                <GradientStop Color="#6b6163" Offset="1.1" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="ApTools Prime Claimer"
+                           Foreground="#DCCFC0"
+                           FontSize="20"
+                           FontFamily="Arial Black"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="20,0,0,0"/>
+
+                <Button x:Name="btnMinimize"
+                        Grid.Column="2"
+                        Content="-"
+                        Foreground="#DCCFC0"
+                        FontSize="20"
+                        Cursor="Hand"
+                        FontFamily="Arial"
+                        BorderThickness="0"
+                        Click="btnMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#282425"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="22" Height="22"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnClose"
+                        Grid.Column="3"
+                        Content="x"
+                        Foreground="#DCCFC0"
+                        FontSize="20"
+                        Cursor="Hand"
+                        FontFamily="Arial"
+                        BorderThickness="0"
+                        Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#282425"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="22" Height="22"
+                                    CornerRadius="11"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300px"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300px"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Name="fileSelecter"
+                    Grid.Column="0"
+                    Text="No file selected"
+                    FontSize="20"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="20,0,0,0"
+                    FontFamily="Arial Black"
+                    Foreground="#DCCFC0"/>
+                
+                <TextBlock
+                    Grid.Column="1"
+                    Text="League account"
+                    FontSize="20"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontFamily="Arial Black"
+                    Foreground="#DCCFC0"/>
+
+                <TextBlock
+                    Grid.Column="2"
+                    Text="Prime account"
+                    FontSize="20"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontFamily="Arial Black"
+                    Foreground="#DCCFC0"/>
+
+                <TextBlock
+                    Grid.Column="3"
+                    Text="Status"
+                    FontSize="20"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontFamily="Arial Black"
+                    Foreground="#DCCFC0"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Name="TheGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300px"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300px"/>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Grid.Column="1" Fill="#1c191a"/>
+                <Border Grid.Column="0" Grid.RowSpan="4" BorderBrush="#DCCFC0" 
+                        BorderThickness="0,1,0,0" Background="{x:Null}" />
+                <Border Grid.Column="1" Grid.RowSpan="4" BorderBrush="#DCCFC0" 
+                        BorderThickness="1,1,0,0" Background="{x:Null}" />
+                <Border Grid.Column="2" Grid.RowSpan="4" BorderBrush="#DCCFC0" 
+                        BorderThickness="1,1,0,0" Background="{x:Null}" />
+                <Border Grid.Column="3" Grid.RowSpan="4" BorderBrush="#DCCFC0" 
+                        BorderThickness="1,1,0,0" Background="{x:Null}" />
+                <Border Grid.Column="4" Grid.RowSpan="4" BorderBrush="#DCCFC0" 
+                        BorderThickness="1,1,0,0" Background="{x:Null}" />
+
+                <ListBox 
+                    ItemsSource="{Binding}"
+                    Background="#1c191a"
+                    Name="theBox"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                </ListBox>
+                
+                <ListBox 
+                    ItemsSource="{Binding}"
+                    Background="#1c191a"
+                    Name="theBox2"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="1"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                </ListBox>
+
+                <ListBox
+                    ItemsSource="{Binding}"
+                    Background="#1c191a"
+                    Name="theBox3"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="1"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                </ListBox>
+
+                <Button Grid.Column="0"
+                        Height="120"
+                        Width="250"
+                        HorizontalAlignment="Center"
+                        Content="Load file"
+                        FontSize="30"
+                        FontFamily="Arial Black"
+                        VerticalAlignment="Top"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnOpen_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="#DCCFC0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#DCCFC0"/>
+                                    <Setter Property="Foreground" Value="#282425"/>
+
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="250" Height="50"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <CheckBox
+                    Grid.Column="0"
+                    FontSize="30"
+                    FontFamily="Arial Black"
+                    Margin="30,300,0,0"
+                    Foreground="#DCCFC0"
+                    Name="runHeadlessChecker"
+                    Content="Run headless"></CheckBox>
+
+                <Button Grid.Column="0"
+                        Height="120"
+                        Width="250"
+                        HorizontalAlignment="Center"
+                        Content="Last Status"
+                        FontSize="30"
+                        FontFamily="Arial Black"
+                        VerticalAlignment="Top"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnStatus_Click"
+                        Margin="0,120,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="#DCCFC0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#DCCFC0"/>
+                                    <Setter Property="Foreground" Value="#282425"/>
+
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="250" Height="50"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Grid.Column="4"
+                        Height="120"
+                        Width="250"
+                        HorizontalAlignment="Center"
+                        Content="Start Claiming"
+                        FontSize="30"
+                        FontFamily="Arial Black"
+                        VerticalAlignment="Bottom"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnStart_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="#DCCFC0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#DCCFC0"/>
+                                    <Setter Property="Foreground" Value="#282425"/>
+
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="250" Height="50"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
